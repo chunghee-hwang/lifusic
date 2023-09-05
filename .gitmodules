@@ -1,0 +1,3 @@
+[submodule "lifusic-account-server"]
+	path = lifusic-account-server
+	url = https://github.com/chunghee-hwang/lifusic-account-server.git
