@@ -2,3 +2,4 @@ redis/*
 mariadb/*
 .idea
 .env
+proxy/log
