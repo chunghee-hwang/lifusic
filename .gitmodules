@@ -1,3 +1,9 @@
 [submodule "lifusic-account-server"]
 	path = lifusic-account-server
 	url = https://github.com/chunghee-hwang/lifusic-account-server.git
+[submodule "lifusic-core-server"]
+	path = lifusic-core-server
+	url = https://github.com/chunghee-hwang/lifusic-core-server.git
+[submodule "lifusic-gateway"]
+	path = lifusic-gateway
+	url = https://github.com/chunghee-hwang/lifusic-gateway.git
