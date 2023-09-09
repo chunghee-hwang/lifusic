@@ -14,7 +14,7 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
 
     ports:
-      - 3306:3306 # docker engine 에게 각 container에게 포트를 수동으로 설정하게 해줍니다.
+      - "3306:3306" # docker engine 에게 각 container에게 포트를 수동으로 설정하게 해줍니다.
     volumes:
       - './mariadb/conf.d:/etc/mysql/conf.d'
       - './mariadb/data:/var/lib/mysql'
@@ -22,7 +22,7 @@ services:
     image: redis:7.2.0
     container_name: account-redis-container
     ports:
-      - 6379:6379
+      - "6379:6379"
     volumes:
       - ./redis/data:/data
       - ./redis/conf/redis.conf:/usr/local/conf/redis.conf
@@ -38,7 +38,27 @@ services:
       dockerfile: Dockerfile
     restart: always
     ports:
-      - 8080:8080
+      - "8080:8080"
     container_name: account-server-container
     depends_on:
       - db
+
+#  core-server:
+#    build:
+#      context: ./lifusic-core-server
+#      dockerfile: Dockerfile
+#    restart: always
+#    ports:
+#      - "9090:9090"
+#    container_name: core-server-container
+#    depends_on:
+#      - db
+
+  gateway:
+    build:
+      context: ./lifusic-gateway
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "5050:5050"
+    container_name: gateway-container
