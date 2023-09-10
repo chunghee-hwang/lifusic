@@ -3,3 +3,4 @@ mariadb/*
 .idea
 .env
 proxy/log
+storage/*
