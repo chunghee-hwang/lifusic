@@ -7,3 +7,6 @@
 [submodule "lifusic-gateway"]
 	path = lifusic-gateway
 	url = https://github.com/chunghee-hwang/lifusic-gateway.git
+[submodule "lifusic-file-server"]
+	path = lifusic-file-server
+	url = https://github.com/chunghee-hwang/lifusic-file-server.git
