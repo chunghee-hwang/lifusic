@@ -48,7 +48,7 @@ services:
 #      context: ./lifusic-core-server
 #      dockerfile: Dockerfile
 #    volumes:
-#     - ./storage: /storage
+#     - ./files: /opt/lifusic/files
 #    restart: always
 #    ports:
 #      - "9090:9090"

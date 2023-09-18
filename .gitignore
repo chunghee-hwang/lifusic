@@ -3,4 +3,5 @@ mariadb/*
 .idea
 .env
 proxy/log
-storage/*
+files/*
+.DS_Store
