@@ -10,3 +10,6 @@
 [submodule "lifusic-file-server"]
 	path = lifusic-file-server
 	url = https://github.com/chunghee-hwang/lifusic-file-server.git
+[submodule "lifusic-frontend"]
+	path = lifusic-frontend
+	url = https://github.com/chunghee-hwang/lifusic-frontend.git

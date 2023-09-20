@@ -43,18 +43,18 @@ services:
     depends_on:
       - db
 
-#  core-server:
-#    build:
-#      context: ./lifusic-core-server
-#      dockerfile: Dockerfile
-#    volumes:
-#     - ./files:/opt/lifusic/files
-#    restart: always
-#    ports:
-#      - "9090:9090"
-#    container_name: core-server-container
-#    depends_on:
-#      - db
+  core-server:
+    build:
+      context: ./lifusic-core-server
+      dockerfile: Dockerfile
+    volumes:
+     - ./files:/opt/lifusic/files
+    restart: always
+    ports:
+      - "9090:9090"
+    container_name: core-server-container
+    depends_on:
+      - db
 
   file-server:
     build:
