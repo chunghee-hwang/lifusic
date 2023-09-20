@@ -48,13 +48,26 @@ services:
 #      context: ./lifusic-core-server
 #      dockerfile: Dockerfile
 #    volumes:
-#     - ./files: /opt/lifusic/files
+#     - ./files:/opt/lifusic/files
 #    restart: always
 #    ports:
 #      - "9090:9090"
 #    container_name: core-server-container
 #    depends_on:
 #      - db
+
+  file-server:
+    build:
+      context: ./lifusic-file-server
+      dockerfile: Dockerfile
+    volumes:
+      - ./files:/opt/lifusic/files
+    restart: always
+    ports:
+      - "6060:6060"
+    container_name: file-server-container
+    depends_on:
+      - db
 
   gateway:
     build:
