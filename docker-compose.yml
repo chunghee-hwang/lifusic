@@ -118,3 +118,12 @@ services:
       - "9093:9093"
     restart: always
     container_name: kafka2
+
+  frontend:
+    build:
+      context: ./lifusic-frontend
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "80:3000"
+    container_name: frontend-container
