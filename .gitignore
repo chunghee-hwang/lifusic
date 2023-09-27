@@ -5,3 +5,5 @@ mariadb/*
 proxy/log
 files/*
 .DS_Store
+jasyptPrivateKey.txt
+lifusic-config
