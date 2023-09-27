@@ -1,0 +1,137 @@
+# Use root/example as user/password credentials
+version: '3.3'
+
+services:
+  db:
+    image: mariadb:11.0.3 # mariadb 11 버전 이미지 사용
+    container_name: db-container # container 이름 설정
+    restart: always
+    environment:
+      MYSQL_PORT: 3306
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DB_NAME}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+
+    ports:
+      - "3306:3306" # docker engine 에게 각 container에게 포트를 수동으로 설정하게 해줍니다.
+    volumes:
+      - './mariadb/conf.d:/etc/mysql/conf.d'
+      - './mariadb/data:/var/lib/mysql'
+  account-redis:
+    image: redis:7.2.0
+    container_name: account-redis-container
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis/data:/data
+      - ./redis/conf/redis.conf:/usr/local/conf/redis.conf
+    labels:
+      - 'name=redis'
+      - 'mode=standalone'
+    restart: always
+    command: redis-server /usr/local/conf/redis.conf
+
+  account-server:
+    build:
+      context: ./lifusic-account-server
+      dockerfile: DockerfileServer
+      args:
+        ACTIVE_PROFILE: dev
+    restart: always
+    ports:
+      - "8080:8080"
+    container_name: account-server-container
+    depends_on:
+      - db
+
+  core-server:
+    build:
+      context: ./lifusic-core-server
+      dockerfile: DockerfileServer
+      args:
+        ACTIVE_PROFILE: dev
+    volumes:
+     - ./files:/opt/lifusic/files
+    restart: always
+    ports:
+      - "9090:9090"
+    container_name: core-server-container
+    depends_on:
+      - db
+
+  file-server:
+    build:
+      context: ./lifusic-file-server
+      dockerfile: DockerfileServer
+      args:
+        ACTIVE_PROFILE: dev
+    volumes:
+      - ./files:/opt/lifusic/files
+    restart: always
+    ports:
+      - "6060:6060"
+    container_name: file-server-container
+    depends_on:
+      - db
+
+  gateway:
+    build:
+      context: ./lifusic-gateway
+      dockerfile: DockerfileServer
+      args:
+        ACTIVE_PROFILE: dev
+    restart: always
+    ports:
+      - "5050:5050"
+    container_name: gateway-container
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+    ports:
+      - "2181:2181"
+    restart: always
+    container_name: zookeeper
+
+  kafka1:
+    image: confluentinc/cp-kafka:7.5.0
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_LISTENERS: PLAINTEXT://:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka1:9092
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"
+    ports:
+      - "9092:9092"
+    restart: always
+    container_name: kafka1
+
+  kafka2:
+    image: confluentinc/cp-kafka:7.5.0
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 2
+      KAFKA_LISTENERS: PLAINTEXT://:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka2:9093
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"
+    ports:
+      - "9093:9093"
+    restart: always
+    container_name: kafka2
+
+  frontend:
+    build:
+      context: ./lifusic-frontend
+      dockerfile: DockerfileFrontend
+    restart: always
+    ports:
+      - "80:3000"
+    container_name: frontend-container
