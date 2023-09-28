@@ -25,6 +25,7 @@ cp jasyptPrivateKey.txt ../lifusic-gateway-server/src/main/resources
 
 cd ..
 docker container prune
+docker volume prune
 docker-compose -f docker-compose-dev.yml down
 docker rmi *lifusic*
 docker-compose -f docker-compose-dev.yml up -d
