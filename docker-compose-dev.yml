@@ -35,7 +35,7 @@ services:
   account-server:
     build:
       context: ./lifusic-account-server
-      dockerfile: DockerfileServer
+      dockerfile: ../DockerfileServer
       args:
         ACTIVE_PROFILE: dev
     restart: always
@@ -48,7 +48,7 @@ services:
   core-server:
     build:
       context: ./lifusic-core-server
-      dockerfile: DockerfileServer
+      dockerfile: ../DockerfileServer
       args:
         ACTIVE_PROFILE: dev
     volumes:
@@ -63,7 +63,7 @@ services:
   file-server:
     build:
       context: ./lifusic-file-server
-      dockerfile: DockerfileServer
+      dockerfile: ../DockerfileServer
       args:
         ACTIVE_PROFILE: dev
     volumes:
@@ -78,7 +78,7 @@ services:
   gateway:
     build:
       context: ./lifusic-gateway
-      dockerfile: DockerfileServer
+      dockerfile: ../DockerfileServer
       args:
         ACTIVE_PROFILE: dev
     restart: always
@@ -130,7 +130,7 @@ services:
   frontend:
     build:
       context: ./lifusic-frontend
-      dockerfile: DockerfileFrontend
+      dockerfile: ../DockerfileFrontend
     restart: always
     ports:
       - "80:3000"
