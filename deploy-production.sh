@@ -23,9 +23,11 @@ cp jasyptPrivateKey.txt ../lifusic-file-server/src/main/resources
 cp gateway-production.yml ../lifusic-gateway/src/main/resources/application-production.yml
 cp jasyptPrivateKey.txt ../lifusic-gateway-server/src/main/resources
 
+cp .env.production ../lifusic-frontend/.env
+
 cd ..
 docker container prune
 docker volume prune
 docker-compose -f docker-compose-production.yml down
-docker rmi *lifusic*
 docker-compose -f docker-compose-production.yml up -d
+docker rmi $(docker images -f "dangling=true" -q)

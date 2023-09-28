@@ -112,7 +112,7 @@ services:
     container_name: kafka2
 
   frontend:
-    image: hch0821/lifusic-frontend:prod-v1
+    image: hch0821/lifusic-frontend:prod-v2
     restart: always
     ports:
       - "80:3000"
