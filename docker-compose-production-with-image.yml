@@ -42,7 +42,7 @@ services:
       - db
 
   core-server:
-    image: hch0821/lifusic-core-server:prod-v1
+    image: hch0821/lifusic-core-server:prod-v2
     volumes:
      - ./files:/opt/lifusic/files
     restart: always
@@ -112,7 +112,7 @@ services:
     container_name: kafka2
 
   frontend:
-    image: hch0821/lifusic-frontend:prod-v2
+    image: hch0821/lifusic-frontend:prod-v3
     restart: always
     ports:
       - "80:3000"

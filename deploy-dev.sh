@@ -28,6 +28,7 @@ cp .env.dev ../lifusic-frontend/.env
 cd ..
 docker container prune
 docker volume prune
+docker rmi *lifusic*
 docker-compose -f docker-compose-dev.yml down
 docker-compose -f docker-compose-dev.yml up -d
 docker rmi $(docker images -f "dangling=true" -q)
