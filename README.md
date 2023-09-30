@@ -1,19 +1,22 @@
 # Lifusic
+
 ## 프로젝트 설명
+
 음악 스트리밍 서비스 프로젝트입니다.  
 아티스트 권한으로 음악을 추가하거나, 다운로드할 수 있습니다.  
 일반 고객 권한으로 음악을 찾거나, 플레이리스트에서 음악을 스트리밍할 수 있습니다.
 
 ## 프로젝트 기간
-2023.09.05 ~ 2023.09.29
 
+2023.09.05 ~ 2023.09.29
 
 ## 데모 영상
 
-[<img src="https://i.ytimg.com/vi/VDcTBL0wPMQ/maxresdefault.jpg" width="50%">](https://youtu.be/VDcTBL0wPMQ?si=1MLaXtcuR0DwEYdX "Lifusic 데모")
+[<img src="https://i.ytimg.com/vi/VDcTBL0wPMQ/maxresdefault.jpg" width="50%">](https://youtu.be/VDcTBL0wPMQ?si=1MLaXtcuR0DwEYdX 'Lifusic 데모')
 
 ## 데모 링크
-http://3.34.35.241
+
+http://lifusic.site
 음악 저작권 문제로, 유튜브 사운드 보관함에 있는 음악들을 업로드해두었습니다.
 공개 과정에서 저작권 문제가 발생한다면 서버를 종료하도록 하겠습니다.
 
@@ -24,7 +27,7 @@ http://3.34.35.241
 ## Sub Repo List
 
 각 서버가 마이크로서비스 아키텍처로 구성되었기 때문에 레포를 따로 나누었습니다.  
-자세한 설명은 기획/개발 문서를 참고해주세요.  
+자세한 설명은 기획/개발 문서를 참고해주세요.
 
 - [Account Server](https://github.com/chunghee-hwang/lifusic-account-server)
 - [Gateway](https://github.com/chunghee-hwang/lifusic-gateway)
