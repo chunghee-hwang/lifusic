@@ -53,7 +53,7 @@ services:
       - db
 
   file-server:
-    image: hch0821/lifusic-file-server:prod-v1
+    image: hch0821/lifusic-file-server:prod-v2
     volumes:
       - ./files:/opt/lifusic/files
     restart: always

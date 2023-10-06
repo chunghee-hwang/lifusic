@@ -30,5 +30,5 @@ docker container prune
 docker volume prune
 docker rmi -f *lifusic*
 docker-compose -f docker-compose-production.yml down
-docker-compose -f docker-compose-production.yml up -d
+docker-compose -f docker-compose-production.yml build
 docker rmi $(docker images -f "dangling=true" -q)
