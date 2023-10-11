@@ -31,7 +31,7 @@ http://lifusic.site
 - [Core Server](https://github.com/chunghee-hwang/lifusic-core-server)
 - [Frontend](https://github.com/chunghee-hwang/lifusic-frontend/tree/main)
 
-## MVP
+<details><summary><h2>MVP</h2></summary>
 
 - Role: admin
   - 음악 등록
@@ -48,9 +48,9 @@ http://lifusic.site
     - 재생목록 음악 곡명, 아티스트명으로 정렬
     - 재생목록 중 음악 하나, 다수 삭제 가능
 
-## 아키텍처
+</details>
 <details>
-  <summary>접기 / 펼치기</summary>
+  <summary><h2>아키텍처</h2></summary>
   
   ![Lifusic Architecture.png](images/Lifusic_Architecture.png)
 
@@ -100,10 +100,8 @@ Next.js 13.5.1, React.js 18.2.0, React Query, Typescript 5.2.2
 
 AWS EC2, Docker Compose
 
-## 디자인 설계
-
 <details>
-  <summary>접기 / 펼치기</summary>
+  <summary><h2>디자인 설계</h2></summary>
   https://ovenapp.io
 
 - 로그인 페이지
@@ -127,9 +125,8 @@ AWS EC2, Docker Compose
 </details>
 
 
-## End Point
 <details>
-  <summary>접기 / 펼치기</summary>
+  <summary><h2>End Point</h2></summary>
 
 ### 아티스트 API
 
