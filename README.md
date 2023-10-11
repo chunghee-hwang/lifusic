@@ -49,8 +49,10 @@ http://lifusic.site
     - 재생목록 중 음악 하나, 다수 삭제 가능
 
 ## 아키텍처
-
-![Lifusic Architecture.png](images/Lifusic_Architecture.png)
+<details>
+  <summary>접기 / 펼치기</summary>
+  
+  ![Lifusic Architecture.png](images/Lifusic_Architecture.png)
 
 - 백엔드(MSA)
   - DB
@@ -80,6 +82,9 @@ http://lifusic.site
     - 각 서버 포트를 숨김으로써 보안 향상
 - 프론트엔드(lifusic-frontend)
   - 모놀리식으로 구성
+</details>
+
+
 
 ## 기술 스택
 
@@ -97,7 +102,9 @@ AWS EC2, Docker Compose
 
 ## 디자인 설계
 
-https://ovenapp.io
+<details>
+  <summary>접기 / 펼치기</summary>
+  https://ovenapp.io
 
 - 로그인 페이지
   ![스크린샷 2023-09-01 오후 11.12.35.png](images/login-page.png)
@@ -117,8 +124,12 @@ https://ovenapp.io
 
 - 재생 목록 페이지
   ![스크린샷 2023-09-01 오후 9.50.50.png](images/playlist-page.png)
+</details>
+
 
 ## End Point
+<details>
+  <summary>접기 / 펼치기</summary>
 
 ### 아티스트 API
 
@@ -131,9 +142,9 @@ https://ovenapp.io
   - 응답
     ```json
     {
-        allMusicSize: 5,
-    		page: 1.
-        musics: [
+        "allMusicSize": 5,
+    		"page": 1,
+        "musics": [
             {
                 "id": 1,
                 "name": "봄 비",
@@ -186,8 +197,8 @@ https://ovenapp.io
       ```json
       {
           "musicName": "음악 제목",
-          "musicFile": BinaryFile,
-      		"thumnailImageFile": BinaryFile,
+          "musicFile": ${BinaryFile},
+      		"thumnailImageFile": ${BinaryFile},
       }
       ```
   - 응답
@@ -253,7 +264,7 @@ https://ovenapp.io
     - request body
       ```json
       {
-      	"name"(optional): "Chunghee's playlist 1"
+      	"name": "Chunghee's playlist 1"
       }
       ```
     - 응답
@@ -391,6 +402,10 @@ https://ovenapp.io
     	"role": "customer|admin" // 일반 고객 or 아티스트
     }
     ```
+  
+</details>
+
+
 
 ## DB 설계
 
