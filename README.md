@@ -90,7 +90,7 @@ http://lifusic.site
 
 ### 백엔드
 
-Java 17, Spring Boot 3.1.3, MariaDB 11.0.3, Kafka 7.5.0, Redis 7.2, Spring Security, Spring Cloud Gateway
+Java 17, Spring Boot 3.1.3, MariaDB 11.0.3, Kafka 7.5.0, Redis 7.2, Spring Security, Spring Cloud Gateway, Junit 5
 
 ### 프론트엔드
 
