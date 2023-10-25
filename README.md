@@ -49,10 +49,10 @@ http://lifusic.site
     - 재생목록 중 음악 하나, 다수 삭제 가능
 
 </details>
-<details>
-  <summary><h2>아키텍처</h2></summary>
+
+## 아키텍처
   
-  ![Lifusic Architecture.png](images/Lifusic_Architecture.png)
+![Lifusic Architecture.png](images/Lifusic_Architecture.png)
 
 - 백엔드(MSA)
   - DB
