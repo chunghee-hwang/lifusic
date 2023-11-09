@@ -28,7 +28,7 @@ http://lifusic.site
 - [Account Server](https://github.com/chunghee-hwang/lifusic-account-server)
 - [Gateway](https://github.com/chunghee-hwang/lifusic-gateway)
 - [File Server](https://github.com/chunghee-hwang/lifusic-file-server)
-- [Core Server](https://github.com/chunghee-hwang/lifusic-core-server)
+- [Music Service Server](https://github.com/chunghee-hwang/lifusic-music-service-server)
 - [Frontend](https://github.com/chunghee-hwang/lifusic-frontend/tree/main)
 
 <details><summary><h2>MVP</h2></summary>
@@ -59,9 +59,9 @@ http://lifusic.site
     - mariadb 사용
   - Kafka
     - 비용이 큰 파일 관련 요청을 처리하기 위함
-    - 음악 등록 요청 ⇒ Rest API ⇒ core-server ⇒ 임시로 파일 저장 ⇒ kafka ⇒ file-server ⇒ 파일 생성 및 결과 전송 ⇒ kafka ⇒ core-server ⇒ 음악 메타 정보 db에 저장 ⇒ Stomp ⇒ frontend
-    - 음악 삭제 요청 ⇒ Rest API ⇒ core-server ⇒ 음악 DB에서 삭제(프론트엔드에 완료되었다고 알림) ⇒ kafka ⇒ file-server ⇒ 파일을 DB와 파일 시스템에서 삭제
-  - 음악 검색, 등록 서버(lifusic-core-server)
+    - 음악 등록 요청 ⇒ Rest API ⇒ music-service-server ⇒ 임시로 파일 저장 ⇒ kafka ⇒ file-server ⇒ 파일 생성 및 결과 전송 ⇒ kafka ⇒ music-service-server ⇒ 음악 메타 정보 db에 저장 ⇒ Stomp ⇒ frontend
+    - 음악 삭제 요청 ⇒ Rest API ⇒ music-service-server ⇒ 음악 DB에서 삭제(프론트엔드에 완료되었다고 알림) ⇒ kafka ⇒ file-server ⇒ 파일을 DB와 파일 시스템에서 삭제
+  - 음악 검색, 등록 서버(lifusic-music-service-server)
     - 음악 검색, 음악 등록 등 관련 서버
     - 음악 제목, 가수로 검색 가능
     - 검색 결과는 곡명, 아티스트명, 앨범명 노출
