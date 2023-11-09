@@ -46,9 +46,9 @@ services:
     depends_on:
       - db
 
-  core-server:
+  music-service-server:
     build:
-      context: ./lifusic-core-server
+      context: ./lifusic-music-service-server
       dockerfile: ../DockerfileServer
       args:
         ACTIVE_PROFILE: production
@@ -57,7 +57,7 @@ services:
     restart: always
     ports:
       - "9090:9090"
-    container_name: core-server-container
+    container_name: music-service-server-container
     depends_on:
       - db
 

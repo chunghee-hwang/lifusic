@@ -41,14 +41,14 @@ services:
     depends_on:
       - db
 
-  core-server:
-    image: hch0821/lifusic-core-server:prod-v2
+  music-service-server:
+    image: hch0821/lifusic-music-service-server:prod-v2
     volumes:
      - ./files:/opt/lifusic/files
     restart: always
     ports:
       - "9090:9090"
-    container_name: core-server-container
+    container_name: music-service-server-container
     depends_on:
       - db
 

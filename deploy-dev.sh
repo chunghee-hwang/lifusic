@@ -14,8 +14,8 @@ fi
 cp account-dev.yml ../lifusic-account-server/src/main/resources/application-dev.yml
 cp jasyptPrivateKey.txt ../lifusic-account-server/src/main/resources
 
-cp core-dev.yml ../lifusic-core-server/src/main/resources/application-dev.yml
-cp jasyptPrivateKey.txt ../lifusic-core-server/src/main/resources
+cp music-service-dev.yml ../lifusic-music-service-server/src/main/resources/application-dev.yml
+cp jasyptPrivateKey.txt ../lifusic-music-service-server/src/main/resources
 
 cp file-dev.yml ../lifusic-file-server/src/main/resources/application-dev.yml
 cp jasyptPrivateKey.txt ../lifusic-file-server/src/main/resources
