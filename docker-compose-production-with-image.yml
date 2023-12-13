@@ -33,7 +33,7 @@ services:
     command: redis-server /usr/local/conf/redis.conf
 
   account-server:
-    image: hch0821/lifusic-account-server:prod-v1
+    image: hch0821/lifusic-account-server:prod-v2
     restart: always
     ports:
       - "8080:8080"
@@ -42,7 +42,7 @@ services:
       - db
 
   music-service-server:
-    image: hch0821/lifusic-music-service-server:prod-v2
+    image: hch0821/lifusic-music-service-server:prod-v1
     volumes:
      - ./files:/opt/lifusic/files
     restart: always
@@ -53,7 +53,7 @@ services:
       - db
 
   file-server:
-    image: hch0821/lifusic-file-server:prod-v2
+    image: hch0821/lifusic-file-server:prod-v3
     volumes:
       - ./files:/opt/lifusic/files
     restart: always
@@ -64,7 +64,7 @@ services:
       - db
 
   gateway:
-    image: hch0821/lifusic-gateway:prod-v1
+    image: hch0821/lifusic-gateway:prod-v3
     restart: always
     ports:
       - "5050:5050"
@@ -112,7 +112,7 @@ services:
     container_name: kafka2
 
   frontend:
-    image: hch0821/lifusic-frontend:prod-v3
+    image: hch0821/lifusic-frontend:prod-v5
     restart: always
     ports:
       - "80:3000"
